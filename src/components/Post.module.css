@@ -38,7 +38,7 @@
 
 .post > header time {
     font-size: 0.875rem;
-    color: var(--gray-800);
+    color: var(--gray-400);
 }
 
 .author {
@@ -108,8 +108,13 @@ commentForm:focus-within footer{
     
 }
 
-.commentForm button[type=submit]:hover{
+.commentForm button[type=submit]:not(:disabled)hover{
     background: var(--green-300);
+}
+
+.commentForm button[type=submit]:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
 }
 
 .comentList{
