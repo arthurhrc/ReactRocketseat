@@ -2,7 +2,13 @@ import { ThumbsUp, Trash } from 'phosphor-react';
 import { Avatar } from './Avatar';
 import styles from './Comment.module.css';
 
-export function Comment ({ content }) {
+export function Comment ({ content, onDeleteComment }) { 
+    function handleDeleteComment (){ /*O compartilhamento de função entre componentes ocorre aqui */
+        console.log('deletar')
+        onDeleteComment (content);
+    }
+
+
     return (
         <div className={styles.comment}>
             <Avatar hasBorder={false} src = "https://avatars.githubusercontent.com/u/57668277?v=4" />
@@ -14,7 +20,7 @@ export function Comment ({ content }) {
                             <strong>Arthur Carvalho</strong>
                             <time title="23 de junho às 11:02" dateTime="2022-06-23 11:02">Publicado há 1hr</time>
                         </div>
-                        <button title="Deletar comentário">
+                        <button onClick={handleDeleteComment} title="Deletar comentário">  /*Handle é representado pela ação do usuario*/
                             <Trash size={24} />
                         </button>
                     </header>
